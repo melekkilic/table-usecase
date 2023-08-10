@@ -1,0 +1,25 @@
+
+  .radio{
+    margin-left: 16px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 16px; 
+  }
+  
+  .form-col {
+    width: 100%; 
+    
+  }
+
+  .currency-input-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .currency-symbol {
+    font-weight: bold;
+    color: blue; // Özel stil ayarları
+    margin-right: 5px;
+  }

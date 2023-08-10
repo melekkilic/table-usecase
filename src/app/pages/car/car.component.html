@@ -1,0 +1,45 @@
+<form class="grid-form">
+    <div class="form-row">
+      <mat-form-field class="form-col" appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput type="text" disabled [(ngModel)]="data.id" name="id" id="id">
+      </mat-form-field>
+      <mat-form-field class="form-col" appearance="outline">
+        <mat-label>Car ID</mat-label>
+        <input matInput type="text" disabled [(ngModel)]="data.carid" name="carId" id="carId">
+      </mat-form-field>
+   
+      <mat-checkbox class="form-col" [(ngModel)]="data.instock" name="inStock">In Stock</mat-checkbox>
+  
+    </div>
+    <div class="form-row">
+      <mat-form-field class="form-col" appearance="outline">
+        <mat-label>Horse Power</mat-label>
+        <input matInput type="number" min="100" max="550" [(ngModel)]="data.hp" name="hp" id="hp" required>
+        <mat-error *ngIf="isHPInvalid()">Horse Power must be between 100 and 550.</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field class="form-col" appearance="outline">
+        <mat-label>Price</mat-label>
+        <div class="currency-input-container">
+          <span class="currency-symbol">€</span>
+          <input matInput type="text" [(ngModel)]="data.price" name="price" id="price" required>
+        </div>
+      </mat-form-field>
+    </div>
+  <br>
+    <div>
+      <mat-radio-group [(ngModel)]="data.color"  name="color" aria-label="Select an option">
+        <mat-radio-button class="radio"  value="red">Red</mat-radio-button>
+        <mat-radio-button class="radio" value="blue">Blue</mat-radio-button>
+        <mat-radio-button class="radio" value="yellow">Yellow</mat-radio-button>
+        <mat-radio-button class="radio" value="gray">Gray</mat-radio-button>
+        <mat-radio-button class="radio" value="green">Green</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  
+    <div>
+      <button mat-raised-button style="float: right;margin-left:20px" (click)="cancel()" color="warn">CANCEL</button>
+      <button mat-raised-button style="float: right" color="primary"[disabled]="!isFormDirty()" (click)="save()">SAVE</button>
+    </div>
+  </form>
